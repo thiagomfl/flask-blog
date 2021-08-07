@@ -12,9 +12,9 @@ bp = Blueprint('blog', __name__)
 def index():
     db = get_db()
     posts = db.execute(
-        'SELECT p.id, title, body, create_at, author_id, username'
-        'FROM posts p JOIN users u ON p.author_id = u.id'
-        'ORDER BY created DESC'
+        'SELECT p.id, title, body, created_at, author_id, username'
+        ' FROM posts p JOIN users u ON p.author_id = u.id'
+        ' ORDER BY created_at DESC'
     ).fetchall()
 
     return render_template('blog/index.html', posts=posts)
