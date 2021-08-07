@@ -27,4 +27,7 @@ def create_app(test_config=None):
     def health_check():
         return jsonify({'status': 'API is running...'})
 
+    from . import database
+    database.init_app(app)
+
     return app
